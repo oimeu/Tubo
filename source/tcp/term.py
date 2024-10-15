@@ -1,5 +1,6 @@
 import toml
-#from start import *
+from start import *
+from client import *
 
 print("Welcome to Tubo, terminal of NVTBT Videos in version 0.0.1! >//<\nTo know you Host, send 'ifconfig' in you terminal.\nTo help for commands, send help.")
 notConnected = "Not connected"
@@ -34,8 +35,8 @@ while True:
             """)
         case "exit":
             break
-           # case "start":
-           # run()
+        case "start":
+            run(config['network']['host'], config['network']['port'])
         case "set": 
             if len(parameterCommand) == 2:
                 key = parameterCommand[0]
@@ -55,7 +56,13 @@ while True:
 
             with open('config.toml', 'w') as f:
                toml.dump(config, f)
- 
+
+        case "connect":
+            if len(parameterCommand) == 2:
+                host = parameterCommand[0]
+                port = int(parameterCommand[1])
+
+                connect(host, port)
         case _:
             print("Unknown command.".format(command))
 
