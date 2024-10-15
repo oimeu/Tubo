@@ -3,7 +3,7 @@ import socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 def run(host, port): 
-    server.bind(('192.168.0.104', 19200))
+    server.bind((host, port))
     server.listen(1)
 
     connection, address = server.accept()
