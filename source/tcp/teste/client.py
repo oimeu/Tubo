@@ -36,4 +36,5 @@ def connect(host, port):
             case _:
                 print("error")
 
-connect("192.168.0.104", 19200)
+connect("0.0.0.0", 19200)
+
